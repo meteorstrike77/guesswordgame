@@ -49,3 +49,42 @@ function send() {
     document.getElementById("word").value = "";
 
 }
+questionturn = "Player1";
+answerturn = "Player2";
+
+function check() {
+    get_answer = document.getElementById("input_check_box").value;
+    answer = get_answer.toLowerCase();
+    console.log("answer in lowercase = " + answer);
+
+    if(answer == word) {
+        if(answerturn == "Player1") {
+            player1score = player1score + 1;
+            document.getElementById("player1_score").innerHTML = player1score;
+        }
+        else {
+            player2score = player2score + 1;
+            document.getElementById("player2_score").innerHTML = player2score;
+        }
+    }
+        if(questionturn == "Player1") {
+            questionturn = "Player2";
+            document.getElementById("playerquestion").innerHTML = "Question Turn = " + player2name;
+        }
+        else {
+            questionturn = "Player1";
+            document.getElementById("playerquestion").innerHTML = "Question Turn = " + player1name;
+        }
+        if(answerturn == "Player1") {
+            answerturn = "Player2";
+            document.getElementById("playeranswer").innerHTML = "Answer Turn = " + player2name;
+        }
+        else {
+            answerturn = "Player1";
+            document.getElementById("playeranswer").innerHTML = "Answer Turn = " + player1name;
+        }
+
+      
+    
+    document.getElementById("output").innerHTML = "";
+}
